@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIMANA</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- TIPPY JS -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/translucent.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/vv/css/vv.css">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+
+    <!-- SEO -->
+    <meta name="theme-color" content="#000">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="VIMANA" />
+    <meta property="og:url" content="https://vimana.vercel.app/" />
+    <meta property="og:description"
+        content="Virtual Music Arena, sebuah wadah untuk artist maupun produsen instrumen musik " />
+    <meta name="image" property="og:image" content="assets/vv/img/sidelogo/vimana.png" />
+
+    <!-- Twibbon -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/460/fabric.min.js"
+        integrity="sha512-ybPp3kCrNQXdvTfh99YLIdnajWnQvHuEKDJ+b26mxI9w+pLhnBo3HmNLJ1pEUBFO1Q0bfJxApeqecNbmaV763g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"
+        integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/vv/js/blob.js"></script>
+
+</head>
+
+<body>
+    <div class="content">
+        <!-- SIDEBAR KIRI -->
+        <div class="sidelogo">
+            <!-- <img src="assets/vv/img/sidelogo/vimana.png" alt="" width="100px"> -->
+        </div>
+
+        <div id="misc">
+            <img class="lazy" src="https://ik.imagekit.io/adiharka/Sciencesomnia/misc6.png?updatedAt=1636603079026"
+                style="right:80px; bottom:200px;" alt="" srcset="">
+        </div>
+
+        <!-- MAP -->
+        <div id="city" class="" data-countdown="{{ $countdown }}" data-countdown_vote="{{ $countdown_vote }}"
+            style="overflow-y: hidden">
+            <img id="venue" src="assets/vv/img/virtualvenue.png" class="map" alt="" usemap="#image-map">
+            <div id="text-lagu">
+                <p>♫ Atlantean Twilight by Kevin MacLeod</p>
+            </div>
+        </div>
+
+        <div id="misc">
+            <img class="lazy" src="https://ik.imagekit.io/adiharka/Sciencesomnia/misc5.png?updatedAt=1636603079838"
+                style="right:135px; bottom:250px" alt="" srcset="">
+        </div>
+        <!-- SIDEBAR KANAN -->
+        <div class="sidenav">
+            <a class="box ungu music" onclick="playPause()">
+                <p>Sound</p>
+                <div class="icon">
+                    <svg id="music-icon" class="playing" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 5L8 9H4V15H8L13 19V5Z" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M17.54 8.46C18.4774 9.39764 19.004 10.6692 19.004 11.995C19.004 13.3208 18.4774 14.5924 17.54 15.53"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+
+            </a>
+            <a class="box biru" data-bs-toggle="modal" href="#modalbook" role="button">
+                <div class="icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2V2Z"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <p>FAQ</p>
+            </a>
+            <a class="box tosca" data-bs-toggle="modal" href="#modaldonasi" role="button">
+                <div class="icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 1V23" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <p>Donation</p>
+            </a>
+            <a class="box maroon" id="exit-btn" data-bs-toggle="modal" href="#modalexit" role="button">
+                <div class="icon">
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_903_50)">
+                            <path
+                                d="M23.655 19.5103C23.655 20.0407 23.4443 20.5494 23.0692 20.9245C22.6942 21.2995 22.1855 21.5103 21.655 21.5103H3.65503C3.1246 21.5103 2.61589 21.2995 2.24082 20.9245C1.86574 20.5494 1.65503 20.0407 1.65503 19.5103V8.51025C1.65503 7.97982 1.86574 7.47111 2.24082 7.09604C2.61589 6.72097 3.1246 6.51025 3.65503 6.51025H7.65503L9.65503 3.51025H15.655L17.655 6.51025H21.655C22.1855 6.51025 22.6942 6.72097 23.0692 7.09604C23.4443 7.47111 23.655 7.97982 23.655 8.51025V19.5103Z"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M12.655 17.5103C14.8642 17.5103 16.655 15.7194 16.655 13.5103C16.655 11.3011 14.8642 9.51025 12.655 9.51025C10.4459 9.51025 8.65503 11.3011 8.65503 13.5103C8.65503 15.7194 10.4459 17.5103 12.655 17.5103Z"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+
+                    </svg>
+                </div>
+                <p>Photobooth</p>
+            </a>
+        </div>
+    </div>
+    <map name="image-map">
+        <area id="mapmain" data-maphilight='{
+            "fill":false, "stroke":true, "strokeColor": "369DE9", "strokeOpacity": 0.5, "shadow":true, "shadowRadius":36, "shadowColor": "369DE9", "shadowOpacity": 0.9, "shadowPosition": "outside"
+        }' target="" alt="mainstage" href=""
+            coords="288,41,288,10,324,27,345,50,346,173,336,177,350,185,350,178,365,170,373,176,373,201,373,206,376,211,376,217,209,311,142,272,142,295,119,308,85,288,82,155,106,116,132,131,206,90,203,85,183,96,182,85,228,59,227,69,204,84,207,90,206,90"
+            shape="poly">
+        <area id="mapinspiring" data-maphilight='{
+            "fill":false, "stroke":true, "strokeColor": "369DE9", "strokeOpacity": 0.5, "shadow":true, "shadowRadius":36, "shadowColor": "369DE9", "shadowOpacity": 0.9, "shadowPosition": "outside"
+        }' target="" alt="inspiring" href=""
+            coords="527,64,564,86,565,113,604,91,738,169,739,177,735,176,722,184,721,185,722,184,658,223,659,266,642,278,612,261,612,249,552,216,534,224,504,207,503,191,482,179,487,175,479,92"
+            shape="poly">
+        <area id="mapmerch" data-maphilight='{
+            "fill":false, "stroke":true, "strokeColor": "369DE9", "strokeOpacity": 0.5, "shadow":true, "shadowRadius":36, "shadowColor": "369DE9", "shadowOpacity": 0.9, "shadowPosition": "outside"
+        }' target="" alt="merch" href=""
+            coords="735,176,838,235,838,309,758,353,719,331,718,332,715,330,716,326,689,311,686,312,681,310,681,307,660,294,658,224"
+            shape="poly">
+        <area id="mapplayground" data-maphilight='{
+            "fill":false, "stroke":true, "strokeColor": "369DE9", "strokeOpacity": 0.5, "shadow":true, "shadowRadius":36, "shadowColor": "369DE9", "shadowOpacity": 0.9, "shadowPosition": "outside"
+        }' target="" alt="playground" href=""
+            coords="191,374,199,369,232,389,233,415,238,418,237,457,204,477,199,475,102,532,72,514,70,516,37,497,35,459,78,411,167,360"
+            shape="poly">
+        <area target="" id="mapinspiring" alt="mapinspiring" title="mapinspiring" href=""
+            coords="479,91,524,64,563,85,564,116,604,91,738,169,738,177,735,178,657,223,658,270,640,279,611,263,611,249,550,215,533,225,504,208,503,190,483,181,489,175"
+            shape="poly">
+        <area target="" id="mapmerch" alt="mapmerch" title="mapmerch" href=""
+            coords="837,234,838,308,759,352,718,329,718,331,713,327,716,325,690,310,685,312,679,307,678,305,660,295,658,224,737,177"
+            shape="poly">
+        <area target="" id="mapplayground" alt="mapplayground" title="mapplayground" href=""
+            coords="199,369,233,389,233,416,238,418,236,456,204,476,202,474,103,533,72,514,70,515,35,497,35,458,77,411,168,359,192,373"
+            shape="poly"> --}}
+    </map>
+
+    <div class="bg">
+        <div class="ag-night-sky-block">
+            <div class="gradient"
+                style="background: linear-gradient(175deg, rgba(157, 19, 169, 0.25) 20%, rgba(21, 47, 140, 0.35) 70%, rgba(23, 122, 234, 0.3) 85%)">
+            </div>
+            <div class="ag-night-sky_sky">
+                <div class="ag-night-sky_stars"></div>
+                <div class="ag-night-sky_twinkling"></div>
+                <div class="ag-night-sky_clouds"></div>
+            </div>
+            <div class="ag-format-container">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MODALS -->
+    <!-- TIMELINE BOOK -->
+    <div class="modal fade" data-easein="expandIn" role="dialog" id="modalbook" tabindex="-1"
+        aria-labelledby="modalbooklabel" aria-hidden="true">
+        <style>
+            .accordion-item {
+                background: none;
+                border: none;
+            }
+
+            .accordion-item>.accordion-header>button.accordion-button,
+            .accordion-item>.accordion-header>button.accordion-button:not(.collapsed) {
+                background: none !important;
+                border: none;
+            }
+        </style>
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 900px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalbooklabel">FAQ</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img
+                            src="assets/vv/img/x.svg" alt="" srcset=""> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion text-white" id="faq-accordion" style="background: none;">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button text-white collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                    aria-controls="collapseOne">
+                                    1. Bagaimana cara untuk melakukan stream event musik virtual melalui Vimana?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#faq-accordion">
+                                <div class="accordion-body ps-5 pt-0">
+                                    → Kunjungi bagian “Main Stage” di halaman venue utama Vimana untuk mengakses
+                                    streaming konser musik virtual.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button text-white collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    2. Bagaimana cara untuk mendaftarkan diri sebagai artist atau vendor market di
+                                    Vimana?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#faq-accordion">
+                                <div class="accordion-body ps-5 pt-0">
+                                    → Kunjungi bagian “Registration Area” di halaman venue utama Vimana untuk melakukan
+                                    pendaftaran sebagai artist atau vendor market di Vimana. Pilih kategori pendaftaran
+                                    Anda dan isi data di form yang telah disedikan. Setelah itu, tim Vimana akan
+                                    melakukan verifikasi dan akan memberikan info lanjutan melalui email yang Anda
+                                    isikan di form.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button text-white collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    3. Bagaimana untuk melihat jadwal event virtual yang ada di Vimana?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#faq-accordion">
+                                <div class="accordion-body ps-5 pt-0">
+                                    → Kunjungi bagian “Schedule Board” di halaman venue utama Vimana untuk mengakses
+                                    jadwal dan informasi event virtual yang ada di Vimana.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TIMELINE BOOK -->
+    <div class="modal fade" data-easein="expandIn" role="dialog" id="modaldonasi" tabindex="-1"
+        aria-labelledby="modaldonasilabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modaldonasilabel">DONATION</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img
+                            src="assets/vv/img/x.svg" alt="" srcset=""> </button>
+                </div>
+                <div class="modal-body">
+                    <p>Kami akan mengembangkan Vimana lebih jauh lagi. Dukung kami untuk mengembangkan virtual venue
+                        Vimana ini dengan berdonasi di :
+                    </p>
+                    <p><img src="assets/vv/img/bca.png" alt="BCA">
+                        : XXXX-XXXX-XXXX (a.n Rakyan Krisna Dewangga)<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- EXIT -->
+    <div class="modal fade" data-easein="expandIn" role="dialog" id="modalexit" tabindex="-1"
+        aria-labelledby="modalexitlabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalexitlabel">I've landed on Vimana</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img
+                            src="assets/vv/img/x.svg" alt="" srcset=""> </button>
+                </div>
+                <div class="modal-body lazy">
+                    <div class="row justify-content-center multi-page-form" style="gap: 2rem; flex-direction: row;">
+                        <div class="panel panel-default" id="twibbon" data-twibbon="assets/vv/img/twibbon.png">
+                            <div class="exit-content">
+                                <div class="canvas-content">
+                                    <div class="canvas-padding" id="canvas-container">
+                                        <canvas id="c"></canvas>
+                                    </div>
+                                    <div class="twibbon-el">
+                                        <div class="tombol">
+                                            <div class="uploadform">
+                                                <input type="file" id="uploadBtn" hidden="hidden" accept="image/*" />
+                                                <button type="button" class="btn btn-primary purple"
+                                                    id="custom-button">Upload Foto</button>
+                                                <button class="btn btn-primary purple" id="reset-btn"
+                                                    style="display: none" onclick="reupload()">Ganti Foto</button>
+                                            </div>
+                                            <br>
+                                            <button id="download" class="btn btn-primary green"
+                                                data-href="{{route('client.sendPhotobooth')}}"
+                                                data-token="{{ csrf_token() }}"
+                                                data-username="{{Auth::guard('participant')->user()->Presence->first()->name}}">
+                                                Unduh
+                                            </button>
+                                        </div>
+                                        <span id="custom-text">Tidak ada file terpilih</span>
+                                        <p>Tips : <br> Kamu bisa geser dan perbesar foto (dgn menarik bagian ujung)
+                                            untuk
+                                            mendapatkan hasil yang lebih baik</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <p class="text-center">Thank you for being a part of Sciencesomnia Universe. See you soon!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MAIN STAGE -->
+    <div class="modal fade lazy" data-easein="expandIn" role="dialog" id="modalmain" tabindex="-1"
+        aria-labelledby="modalmainlabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" id="modalmain-child">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalmainlabel">Main <span class="brush">Stage</span></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img
+                            src="assets/vv/img/x.svg" alt="" srcset=""> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" id="mediagroup" data-link="5qap5aO4i9A">
+                        <div class="col col-lg-8" id="videogroup">
+                            <lite-youtube width="100%" id="video" videoid="M3v3wswP2_8"
+                                params="modestbranding=1&showinfo=0&autohide=1&autoplay=1"></lite-youtube>
+                        </div>
+                        <div class="col col-lg-4 p-0" id="livechatgroup">
+                            <iframe id="livechat" width="100%" src="https://www.youtube.com/" frameborder="0"></iframe>
+                        </div>
+                        <h3 style="text-align: center" class="mt-5 mb-4">Konser Terdekat : RetroClub Sound
+                        </h3>
+                        <div class="count">
+                            <div class="days sec">
+                                <h2 id="days">00</h2>
+                                <p>hari</p>
+                            </div>
+                            <div class="hours sec">
+                                <h2 id="hours">00</h2>
+                                <p>jam</p>
+                            </div>
+                            <div class="minutes sec">
+                                <h2 id="minutes">00</h2>
+                                <p>menit</p>
+                            </div>
+                            <div class="seconds sec">
+                                <h2 id="seconds">00</h2>
+                                <p>detik</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- INSPIRING AREA -->
+    <div class="modal fade lazy modalbook" data-easein="expandIn" role="dialog" id="modalinspiring" tabindex="-1"
+        aria-labelledby="modalinspiringlabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 800px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalinspiringlabel">Schedule <span class="brush">Board</span></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img
+                            src="assets/vv/img/x.svg" alt="" srcset=""> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="timeline">
+                        <div class="hiasan">
+                            <div class="circle"></div>
+                            <div class="kotak"></div>
+                            <div class="kotak"></div>
+                        </div>
+                        <div class="tgl">
+                            <h1>26</h1>
+                            <h4>November</h4>
+                            <h4>Jumat</h4>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>19:00</td>
+                                <td>Opening</td>
+                            </tr>
+                            <tr>
+                                <td>~:55</td>
+                                <td>FGT</td>
+                            </tr>
+                            <tr>
+                                <td>20:25</td>
+                                <td>Doorprize</td>
+                            </tr>
+                            <tr>
+                                <td>~:30</td>
+                                <td>Komunitas</td>
+                            </tr>
+                            <tr>
+                                <td>~:45</td>
+                                <td>Closing</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="timeline">
+                        <div class="hiasan">
+                            <div class="circle"></div>
+                            <div class="kotak"></div>
+                            <div class="kotak"></div>
+                        </div>
+                        <div class="tgl">
+                            <h1>30</h1>
+                            <h4>November</h4>
+                            <h4>Selasa</h4>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>19:00</td>
+                                <td>Opening</td>
+                            </tr>
+                            <tr>
+                                <td>~:05</td>
+                                <td>Penampilan Video</td>
+                            </tr>
+                            <tr>
+                                <td>~:10</td>
+                                <td class="talkshow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-mic-fill" viewBox="0 0 16 16">
+                                        <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z" />
+                                        <path
+                                            d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+                                    </svg>
+                                    Talkshow
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>20:20</td>
+                                <td>Ice Breaking</td>
+                            </tr>
+                            <tr>
+                                <td>~:25</td>
+                                <td class="sciefest">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-speaker-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M9 4a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-2.5 6.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0z" />
+                                        <path
+                                            d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm6 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 7a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" />
+                                    </svg>
+                                    Sciencesomnia Festival
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>~:55</td>
+                                <td>Closing</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="timeline">
+                        <div class="hiasan">
+                            <div class="circle"></div>
+                            <div class="kotak"></div>
+                            <div class="kotak"></div>
+                        </div>
+                        <div class="tgl">
+                            <h1>3</h1>
+                            <h4>Desember</h4>
+                            <h4>Jumat</h4>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>19:00</td>
+                                <td>Opening</td>
+                            </tr>
+                            <tr>
+                                <td>~:05</td>
+                                <td>Penampilan Video</td>
+                            </tr>
+                            <tr>
+                                <td>~:10</td>
+                                <td class="webinar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-chat-left-dots-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                    </svg>
+                                    Webinar
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>20:35</td>
+                                <td>Ice Breaking</td>
+                            </tr>
+                            <tr>
+                                <td>~:40</td>
+                                <td class="sciefest">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-speaker-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M9 4a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-2.5 6.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0z" />
+                                        <path
+                                            d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm6 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 7a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" />
+                                    </svg>
+                                    Sciencesomnia Festival
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>21:10</td>
+                                <td>Closing</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="timeline">
+                        <div class="hiasan">
+                            <div class="circle"></div>
+                            <div class="kotak"></div>
+                            <div class="kotak"></div>
+                        </div>
+                        <div class="tgl">
+                            <h1>10</h1>
+                            <h4>Desember</h4>
+                            <h4>Jumat</h4>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>19:00</td>
+                                <td>Opening</td>
+                            </tr>
+                            <tr>
+                                <td>~:05</td>
+                                <td>Penampilan Video</td>
+                            </tr>
+                            <tr>
+                                <td>~:10</td>
+                                <td class="sciefest">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-speaker-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M9 4a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-2.5 6.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0z" />
+                                        <path
+                                            d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm6 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 7a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" />
+                                    </svg>
+                                    Sciencesomnia Festival
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>~:35</td>
+                                <td>STA</td>
+                            </tr>
+                            <tr>
+                                <td>20:15</td>
+                                <td>Duta FST</td>
+                            </tr>
+                            <tr>
+                                <td>~:30</td>
+                                <td>Komunitas</td>
+                            </tr>
+                            <tr>
+                                <td>~:45</td>
+                                <td class="sciefest">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-speaker-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M9 4a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-2.5 6.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0z" />
+                                        <path
+                                            d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm6 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 7a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z" />
+                                    </svg>
+                                    Sciencesomnia Festival
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>~:55</td>
+                                <td>Closing</td>
+                            </tr>
+                            <tr>
+                                <td>21:05</td>
+                                <td class="star">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    Arsa
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>~:25</td>
+                                <td class="star">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    Sharla
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>~:55</td>
+                                <td class="star">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    SilverBand
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>22:00</td>
+                                <td class="star">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                                        class="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    Eclat
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PARTNER & MERCH -->
+    <div class="modal fade" data-easein="expandIn" role="dialog" id="modalmerch" tabindex="-1"
+        aria-labelledby="modalmerchlabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalmerchlabel">Shopping <span class="brush">AREA</span></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img
+                            src="assets/vv/img/x.svg" alt="" srcset=""> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-container row">
+                        <a class="bigbro biru col col-2" href="/merchandise.html" target="__blank">
+                            <div class="circle">
+                                <svg width="75" height="75" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg>
+                            </div>
+                            <div class="line"></div>
+                            <div class="text">
+                                <p style="width: 200px;">Merchandise</p>
+                            </div>
+                        </a>
+                        <a class="bigbro tosca col col-2" href="/instrument.html" target="__blank">
+                            <div class="circle">
+                                <svg height="75" width="75" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-music">
+                                    <path d="M9 18V5l12-2v13"></path>
+                                    <circle cx="6" cy="18" r="3"></circle>
+                                    <circle cx="18" cy="16" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="line"></div>
+                            <div class="text">
+                                <p style="width: 200px;">Instrument</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PLAYGROUND AREA -->
+    <div class="modal fade" data-easein="expandIn" role="dialog" id="modalplayground" tabindex="-1"
+        aria-labelledby="modalplaygroundlabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalplaygroundlabel">Registration <span class="brush">Area</span></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img
+                            src="assets/vv/img/x.svg" alt="" srcset=""> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-container row">
+                        <a class="bigbro biru col col-2" href="/form-vendor.html" target="__blank">
+                            <div class="circle">
+                                <svg width="75" height="75" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-shopping-cart">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </div>
+                            <div class="line"></div>
+                            <div class="text">
+                                <p style="width: 200px;">As Vendor</p>
+                            </div>
+                        </a>
+                        <a class="bigbro tosca col col-2" href="/form-artist.html" target="__blank">
+                            <div class="circle">
+                                <svg width="75" height="75" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="line"></div>
+                            <div class="text">
+                                <p style="width: 200px;">As Artist</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <audio controls autoplay="true" muted loop id="backsound" style="display: none;">
+        <source src="assets/vv/audio/Atlantean-Twilight.ogg" type="audio/ogg">
+        <source src="assets/vv/audio/Atlantean-Twilight.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.2.0/lite-youtube.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.5.0/dist/lazyload.min.js"></script>
+
+    <!-- Image Map Library -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.2/jquery.maphilight.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
+
+
+    <!-- BOOTSTRAP -->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+
+    <!-- Tooltip library -->
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/vv/js/vv.js"></script>
+    <script>
+        $(document).ready(function (e) {
+            $('img[usemap]').rwdImageMaps();
+        });
+
+        var lazyLoadInstance = new LazyLoad({
+            // Your custom settings go here
+        });
+
+        // Function timeout, karna bawaan cupu gabisa lebih dari 30 hari
+        function setTimeout_(fn, delay) {
+            var maxDelay = Math.pow(2, 31) - 1;
+
+            if (delay > maxDelay) {
+                var args = arguments;
+                args[1] -= maxDelay;
+
+                return setTimeout(function () {
+                    setTimeout_.apply(undefined, args);
+                }, maxDelay);
+            }
+
+            return setTimeout.apply(undefined, arguments);
+        }
+        // // Auto reload kalo udh waktunya
+        // var countdown = $('#city').data('countdown');
+        // var countdownMs = parseInt(countdown)*1000;
+        // // console.log(countdownMs);
+        // setTimeout_(function() {
+        //     location.reload()
+        // }, countdownMs);
+
+        // Buat tombol vote, auto munculin
+        var countdown_vote = $('#city').data('countdown_vote');
+        var countdownMs_vote = parseInt(countdown_vote) * 1000;
+        setTimeout_(function () {
+            $('#voteContainer').attr('class', 'd-flex justify-content-center vote-show')
+        }, countdownMs_vote);
+
+    </script>
+
+</body>
+
+</html>

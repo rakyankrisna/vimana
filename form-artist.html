@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VIMANA - Bergabung sebagai Artist</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+
+    <!-- SEO -->
+    <meta name="theme-color" content="#000">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="VIMANA" />
+    <meta property="og:url" content="https://vimana.vercel.app/" />
+    <meta property="og:description"
+        content="Virtual Music Arena, sebuah wadah untuk artist maupun produsen instrumen musik " />
+    <meta name="image" property="og:image" content="assets/vv/img/sidelogo/vimana.png" />
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/env.css">
+    <link rel="stylesheet" href="assets/css/registration.css">
+    <style>
+        body::before {
+            background-image: url('https://ik.imagekit.io/adiharka/Sciencesomnia/tr:w-2000/bg-form.jpg');
+        }
+
+        @media(max-width: 1440px) {
+            body::before {
+                background-image: url("https://ik.imagekit.io/adiharka/Sciencesomnia/tr:w-1200/bg-form.jpg"); // small image
+            }
+        }
+    </style>
+</head>
+
+<body class="webinar">
+    <div class="container">
+        <form class="form" action="" method="POST" enctype="multipart/form-data" novalidate>
+            <fieldset>
+                <div class="top">
+                    <div>
+                        <h4 style="font-weight: 400; text-align: left;">bergabung sebagai Artist</h4>
+                        <p class="caption mt-0">Daftarkan diri atau group Anda untuk mendapat kesempatan menampilkan
+                            karya musik Anda di Virtual Stage Vimana yang dapat diakses oleh pengunjung dan mulai
+                            kenalkan diri atau group Anda secara global dengan mengisi form di bawah ini. Isikan dengan
+                            data yang benar dan valid!</p>
+                    </div>
+                    <div class="input">
+                        <input id="name" required type="text" name="name" class="input__element" placeholder=" " />
+                        <label class="input__label" for="name">Nama *</label>
+                    </div>
+                    <div class="input">
+                        <input id="email" required type="email" name="email" class="input__element" placeholder=" " />
+                        <label class="input__label" for="email">Email *</label>
+                    </div>
+                    <div class="input input_select">
+                        <label class="input__label_select" for="origin">Kategori *</label>
+                        <select class="custom-select" required id="inputGroupSelect01" name="origin">
+                            <option value="" selected disabled>Pilih</option>
+                            <option value="Solo">Solo</option>
+                            <option value="Grup">Grup</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <input id="stage" required type="text" name="stage" class="input__element" placeholder=" " />
+                        <label class="input__label" for="stage">Nama Panggung *</label>
+                    </div>
+                    <div class="input">
+                        <input id="phone" required type="text" name="phone" class="input__element" placeholder=" " />
+                        <label class="input__label" for="phone">No HP *</label>
+                    </div>
+
+                </div>
+
+                <button type="button" class="button" disabled>
+                    <h5 class="button__label next">Bergabung</h5>
+                    <div class="button__icon"></div>
+                </button>
+            </fieldset>
+
+            <fieldset>
+                <div class="top">
+                    <div class="header">
+                        <h4 style="font-weight: 400;">bergabung sebagai artist</h4>
+                    </div>
+                    <p>Terima kasih telah bergabung. Tim akan meninjau dan memverifikasi request Anda. Tunggu respons
+                        dari tim Vimana dan jangan lupa cek email secara berkala</p>
+                </div>
+
+                <a type="button" class="button" href="/venue.html">
+                    <h5 class="button__label">Kembali ke Venue</h5>
+                    <div class="button__icon"></div>
+                </a>
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="assets/js/regis-webinar.js"></script>
+</body>
+
+</html>

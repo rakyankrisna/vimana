@@ -1,0 +1,158 @@
+@import 'env';
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gradient {
+    background: linear-gradient(75deg, rgba(6, 180, 174, 0.2) 30%, rgba(22, 36, 87, 0.45) 70%, rgba(75, 13, 63, 0.3) 90%);
+    padding: 1rem;
+}
+
+.logo {
+    display: flex;
+    gap: 1rem;
+}
+
+.modal-content {
+    min-height: unset !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+.sponsor img {
+    height: 92px;
+}
+.collab img {
+    height: 48px;
+}
+.medpart img {
+    height: 32px;
+}
+.partner {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    p {
+        margin-top: 3rem;
+        margin-bottom: 0;
+    }
+}
+
+.konten {
+    @for $i from 1 through 6 {
+        > *:nth-child(#{$i}) {
+            animation: waiting #{.4s+$i*.2s} ease, fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 0s,#{.4s+$i*.2s};
+        }
+      }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.modal-isi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.row.socmed {
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: .5rem;
+    a {
+        width: 36px;
+        height: 36px;
+        padding: 0
+    }
+}
+
+.input {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.input__element, .custom-select {
+    margin: 0;
+    width: 100%;
+    padding: 14px 21px;
+    border: none;
+    background-color: #110F15;
+    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 50%);
+    transition: -webkit-box-shadow 0.4s ease;
+    transition: box-shadow 0.4s ease;
+    transition: box-shadow 0.4s ease, -webkit-box-shadow 0.4s ease;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    box-shadow: 0px 3px 0px #369ee99c;
+    border-radius: 4px;
+    &:focus {
+        box-shadow: inset 0 -2px 0 0 #369DE9;
+        outline: none;
+        box-shadow: 0px 5px 0px $primary;
+    }
+}
+
+.presensi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.input__label {
+    font-size: 16px;
+    line-height: 18px;
+    position: absolute;
+    top: 14px;
+    left: 21px;
+    color: #DAD9D9;
+    pointer-events: none;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: transform, -webkit-transform;
+    transition-duration: 0.2s, 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0s, 0s;
+}
+
+.input__element:focus + .input__label, .input__element:not(:placeholder-shown) + .input__label {
+    top: -16px;
+    left: 0;
+    font-size: 14px;
+    transform: translate3d(0, -5px, 0);
+}

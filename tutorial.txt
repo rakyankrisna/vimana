@@ -1,0 +1,4 @@
+web telah dihosting di
+https://vimana.vercel.app/
+
+untuk melihat web secara local, gunakan extension live server yang ada di vscode

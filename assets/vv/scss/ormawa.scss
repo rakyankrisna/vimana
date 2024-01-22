@@ -1,0 +1,301 @@
+@import 'env';
+
+.bigbro {
+    height: 70px;
+    width: 275px;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.3);
+    flex-direction: row !important;
+    border-radius: 8px;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    border: 1px solid rgba($biru, .5);
+    .circle {
+        backdrop-filter: none !important;
+        background: none !important;
+        border: none !important;
+        height: 100px !important;
+    }
+    .line {
+        display: none;
+    }
+    .text {
+        transform: translateY(-19px);
+    }
+    &:hover {
+        .circle {
+            img {
+                animation-timing-function: ease;
+                animation-iteration-count: infinite;
+                animation-name: bounce;
+                animation-duration: 1.5s;
+                animation-delay: .5s;
+            }
+        }
+    }
+}
+
+.sticky > div {
+    position: sticky;
+    top: 120px;
+    .modal-header {
+        justify-content: left;
+    }
+    p {
+        font-size: 18px;
+    }
+}
+
+.antigeser {
+    position: initial !important;
+}
+
+.modal-body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+@keyframes form-open {
+    0% {
+        clip-path: polygon(0 0, 20px 0, 20px 0, 20px calc(100% - 20px), 0 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(0 0, 20px 0, 100% 0, 100% calc(100% - 20px), 100% 100%, 0 100%);
+    }
+}
+
+.modal-header {
+    animation: form-open 1s cubic-bezier(0.4, 0.0, 0.15, 1) forwards;
+}
+
+.modal-kiri {
+    @for $i from 1 through 2 {
+        > *:nth-child(#{$i}) {
+            animation: waiting #{$i*.2s} ease, fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 0s,#{$i*.2s};
+        }
+      }
+}
+.modal-body {
+    @for $i from 1 through 12 {
+        > *:nth-child(#{$i}) {
+            animation: waiting #{$i*.2s} ease, fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 0s,#{$i*.2s};
+        }
+      }
+}
+
+.sticky {
+    animation: fade-in 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+#modalormawa {
+    // background: rgba(0, 0, 0, 0.75);
+    background: linear-gradient(75deg, rgba(15, 70, 68, 0.1) 10%, rgba(22, 36, 87, 0.35) 70%, rgba(39, 31, 31, 0.5) 100%), linear-gradient(75deg, rgba(1, 51, 50, 0.8) 0%, rgba(39, 31, 31, 0.7) 100%);
+    p {
+        z-index: 3;
+    }
+    .modal-body {
+        .background {
+            width: 1px;
+            height: 1px;
+            position: relative;
+            top: -100px;
+            z-index: 0;
+            img {
+                mix-blend-mode: screen;
+            }
+        }
+    }
+    #deskripsi {
+        background-position:
+            // top right, /* this positions the first image */
+            bottom right; /* this positions the second image */
+        background-repeat:
+            no-repeat; /* this applies to both images */
+    }
+    .circle {
+        width: 128px;
+        height: 128px;
+        position: relative;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: $tosca-g;
+        backdrop-filter: blur(6px);
+        transition: all .3s;
+        transition-timing-function: ease-out;
+        border: 1px solid rgba($tosca, .5);
+    }
+    .image {
+        img {
+            width: 100%;
+            max-width: 256px;
+        }
+    }
+
+    .socmed {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        a {
+            transition: all .25s;
+        }
+        a:hover {
+            transform: translateY(-4px);
+        }
+    }
+
+    .modal-kiri {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin: 4rem 0;
+    }
+}
+
+.socmed a {
+    width: 52px;
+    height: 52px;
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-radius: 50%;
+    backdrop-filter: blur(6px);
+    transition: all .3s;
+    transition-timing-function: ease-out;
+    background: $tosca-g;
+    border: 1px solid rgba($tosca, .5);
+}
+
+#ig {
+    background: linear-gradient(30deg, rgba(245, 133, 41, .1) 0%, rgba(221, 42, 123, .5) 50%, rgba(129, 52, 175, 1) 75%, rgba(81, 91, 212, 1) 100%);
+    border: 1px solid rgba(129, 52, 175, .5);
+}
+
+#ytb {
+    background: linear-gradient(30deg, rgba(245, 56, 56, .2) 0%, rgb(221, 42, 123)100%);
+    border: 1px solid rgba(221, 42, 123, .5);
+}
+
+#tiktok {
+    background: linear-gradient(30deg, rgba(8, 226, 220, 0.2) 40%, rgb(20, 20, 20)100%);
+    border: 1px solid rgba(29, 136, 150, 0.5);
+}
+
+#deskripsi {
+    border: none;
+}
+
+.nobg {
+    background: none !important;
+}
+
+.noborder {
+    border: none !important;
+}
+
+@media screen and (max-width: 1200px) {
+        .bigbro {
+            width: 100%;
+        }
+}
+@media screen and (max-width: 767px) {
+    .bigbro {
+        backdrop-filter: none !important;
+    }
+
+    .row-ormawa {
+        flex-direction: column;
+    }
+
+    h1.modal-title {
+        font-size: 30px;
+        line-height: 32px;
+    }
+
+    #modalormawa {
+        h2 {
+            text-align: left;
+            margin-bottom: 0;
+            margin-top: 12px;
+            &+ p {
+                margin-bottom: 12px;
+            }
+        }
+        .modal-isi {
+            flex-direction: column;
+        }
+        .modal-kiri {
+            margin: 4rem 0 2rem 0;
+        }
+    }
+
+
+    .modal-header {
+        background: rgba(0, 0, 0, 0.6);
+        justify-content: space-between;
+    }
+
+    .modal .modal-dialog .modal-header > * {
+        position: initial;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .row-ormawa {
+        .modal-content {
+            min-height: unset;
+        }
+    }
+    .row-ormawa {
+        &:first-child {
+            padding-left: 0;
+        }
+    }
+    #modalormawa {
+        .modal-header {
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+            backdrop-filter: blur(6px);
+            top: 0;
+        }
+        .modal-isi {
+            margin-top: 6rem;
+        }
+        #deskripsi {
+            border-top: 1px solid $primary;
+        }
+    }
+    .ormawa-2 {
+        padding: 0 16px;
+    }
+    .col {
+        padding-left: 12px;
+        // padding-right: 0;
+    }
+}
+
+
+@media screen and (min-aspect-ratio: 17/9) {
+    .sticky {
+        &> div {
+            top: 0 !important;
+        }
+        &> div p {
+            font-size: 15px !important;
+        }
+    }
+
+}

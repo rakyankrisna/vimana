@@ -1,0 +1,223 @@
+.vote {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
+.vote button {
+  height: 50px;
+  width: 90%;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  -webkit-animation: waiting 1.3s ease, fade-in 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          animation: waiting 1.3s ease, fade-in 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  -webkit-animation-delay: 0s,1.3s;
+          animation-delay: 0s,1.3s;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.plan {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.plan input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.plan input[type="radio"]:checked + .plan-content {
+  background: #568df568;
+  -webkit-transition: ease-in 0.3s;
+  transition: ease-in 0.3s;
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+}
+
+.plan input[type="radio"]:checked + .plan-content img {
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+}
+
+.plan input[type="radio"]:checked + .plan-content:after {
+  content: "";
+  content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">\a                         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>\a                       </svg>');
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background: #21e0a7a5;
+  right: 20px;
+  top: 20px;
+  border-radius: 100%;
+  border: 1px solid rgba(86, 251, 215, 0.5);
+  -webkit-box-shadow: 0px 0px 0px 4px #2b73e0c1;
+          box-shadow: 0px 0px 0px 4px #2b73e0c1;
+}
+
+.plan .plan-content {
+  background: rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 340px;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid rgba(86, 103, 251, 0.5);
+  border-radius: 10px;
+  -webkit-transition: -webkit-box-shadow 0.4s;
+  transition: -webkit-box-shadow 0.4s;
+  transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s, -webkit-box-shadow 0.4s;
+  position: relative;
+}
+
+.plan .plan-content img {
+  margin-right: 30px;
+  height: 72px;
+}
+
+.plan .plan-content:hover {
+  -webkit-box-shadow: 0px 2px 12px 0px #369ee99c;
+          box-shadow: 0px 2px 12px 0px #369ee99c;
+}
+
+.plan .plan-details {
+  font-family: 'rubik', sans-serif;
+}
+
+.plan .plan-details span {
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: block;
+  font-size: 20px;
+  line-height: 24px;
+  color: white;
+}
+
+.plan .plan-details p {
+  color: white;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 991px) {
+  .modal-body {
+    gap: 1.5rem;
+  }
+  .plans {
+    margin: 0 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding: 40px;
+  }
+  .plan {
+    width: 100%;
+  }
+  .plan.complete-plan {
+    margin-top: 20px;
+  }
+  .plan .plan-content .plan-details {
+    width: 70%;
+    display: inline-block;
+  }
+  .plan input[type="radio"]:checked + .plan-content:after {
+    top: 45%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .plan .plan-content .plan-details {
+    width: 60%;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .plan .plan-content img {
+    margin-bottom: 20px;
+    height: 56px;
+    -webkit-transition: height 0.4s;
+    transition: height 0.4s;
+  }
+  .plan input[type="radio"]:checked + .plan-content:after {
+    top: 20px;
+    right: 10px;
+  }
+  .plan .plan-content .plan-details {
+    width: 100%;
+  }
+  .plan .plan-content {
+    padding: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+  }
+}
+
+/* inspiration */
+.inspiration {
+  font-size: 12px;
+  margin-top: 50px;
+  position: absolute;
+  bottom: 10px;
+  font-weight: 300;
+}
+
+.inspiration a {
+  color: #666;
+}
+
+@media screen and (max-width: 767px) {
+  .plan .plan-content {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=vote.css.map */

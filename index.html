@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIMANA</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- SEO -->
+    <meta name="theme-color" content="#000">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="VIMANA" />
+    <meta property="og:url" content="https://vimana.vercel.app/" />
+    <meta property="og:description"
+        content="Virtual Music Arena, sebuah wadah untuk artist maupun produsen instrumen musik " />
+    <meta name="image" property="og:image" content="assets/vv/img/sidelogo/vimana.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/vv/css/ormawa.css">
+    <link rel="stylesheet" href="assets/vv/css/presensi.css">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+</head>
+
+<body
+    style="background-image: linear-gradient(75deg, rgba(8, 226, 220, 0.2) 20%, rgba(22, 36, 87, 0.65) 70%, rgba(39, 31, 31, 0.7) 100%), url('assets/vv/img/presensi/bg.jpg');">
+    <div class="container my-md-4" style="max-width: 700px;">
+        <div class="logo">
+            <img class="img-fluid" src="assets/vv/img/sidelogo/vimana.png" alt="" srcset="">
+        </div>
+        <div class="presensi">
+            <div class="modal-header nobg">
+                <div class="antigeser">
+                    <h2>VIMANA</h2>
+                </div>
+            </div>
+            <div class="modal-content">
+                <form class="modal-isi p-5">
+                    <p>Virtual Music Arena, sebuah wadah untuk artist maupun produsen instrumen musik dengan mengambil
+                        tema karakter futuristik dan teknologi canggih yang mengambil nama dari bahasa Sanskerta yang
+                        berarti "Pesawat Terbang Mitologis". Nama ini mencerminkan citra modern dan futuristik dengan
+                        sentuhan yang spiritual dan unik, menciptakan gambaran industri musik yang sangat maju,
+                        inovatif, dan memiliki kemampuan untuk membawa musisi ke tempat yang baru dan menakjubkan.</p>
+                    <a href="/venue.html" type="submit" class="btn card-glow text-white">Go to Venue</a>
+                </form>
+                <div class="partner mb-5">
+                    <p>In Collaboration With :</p>
+                    <div class="collab d-flex flex-row">
+                        <a target="_blank" href="https://www.linkedin.com/in/adiharka/"
+                            class="text-white text-decoration-none" style="background-color: rgba(0, 0, 0, 0.4);">
+                            <img class="img-fluid"
+                                src="https://media.licdn.com/dms/image/D5603AQHAAsJ6rxQj1A/profile-displayphoto-shrink_800_800/0/1674829579307?e=1684368000&v=beta&t=npmMfh88IKQzliPC0WrfFBavMEeupB9vo8vZkSAFRbw"
+                                alt="">
+                            <span class="p-2">Andi Mahardika</span>
+                        </a>
+                        <a target="_blank" href="https://www.linkedin.com/in/rakyankrisna/"
+                            class="text-white text-decoration-none" style="background-color: rgba(0, 0, 0, 0.4);">
+                            <img class="img-fluid"
+                                src="https://media.licdn.com/dms/image/D5603AQEgijpjDRJIRw/profile-displayphoto-shrink_800_800/0/1678583328317?e=1684368000&v=beta&t=khdOjVMw93ycaUO7GVVe9jHCAWKDC3OW5Q6s2u1HEOw"
+                                alt="">
+                            <span class="p-2">Rakyan Krisna</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <style>
+        @property --rotate {
+            syntax: "<angle>";
+            initial-value: 132deg;
+            inherits: false;
+        }
+
+        .card-glow {
+            background: #000000ae;
+            /* border: 3px solid #191c2956; */
+            width: 200px;
+            height: 80px;
+            padding: 3px;
+            position: relative;
+            border-radius: 6px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: flex;
+            font-size: 1.5em;
+            animation: ease-in-out 0.5s;
+            transition: ease-in-out 0.5s;
+            color: rgb(88 199 250 / 0%);
+            cursor: pointer;
+        }
+
+        .card-glow::before {
+            content: "";
+            width: 104%;
+            height: 102%;
+            border-radius: 8px;
+            background-image: linear-gradient(var(--rotate), #b38ff7, #cb3eff 43%, #4e00c2);
+            position: absolute;
+            z-index: -1;
+            top: -1%;
+            left: -2%;
+            animation: spin 2.5s linear infinite;
+        }
+
+        .card-glow::after {
+            position: absolute;
+            content: "";
+            top: calc(80px / 6);
+            left: 0;
+            right: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            transform: scale(1.2);
+            filter: blur(calc(80px / 6));
+            background-image: linear-gradient(var(--rotate), #b38ff7, #cb3eff 43%, #4e00c2);
+            opacity: 1;
+            transition: opacity .5s;
+            animation: spin 2.5s linear infinite;
+        }
+
+        .card-glow:hover {
+            /* transform: scale(1.1); */
+            /* opacity: 0; */
+        }
+
+        @keyframes spin {
+            0% {
+                --rotate: 0deg;
+            }
+
+            100% {
+                --rotate: 360deg;
+            }
+        }
+    </style>
+
+</body>
+
+</html>
